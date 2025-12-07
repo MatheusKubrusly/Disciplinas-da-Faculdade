@@ -6,5 +6,6 @@
     "editor.suggestOnTriggerCharacters": false,
     "files.associations": {
         "assert.h": "c"
-    }
+    },
+    "problems.visibility": false
 }
