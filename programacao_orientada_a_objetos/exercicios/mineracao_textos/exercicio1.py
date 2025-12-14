@@ -62,7 +62,7 @@ for vetor in coordenadas_normalizadas:
 
 #agora devemos aplicar a fórmula da "similaridade entre cossenos"
 #mediremos o cosseno do ângulo formado entre dois vetores
-#quanto mais próximo o cosseno chegar de 0, maior a correlação entre os documentos
+#quanto mais próximo o cosseno chegar de 1, maior a correlação entre os documentos
 
 #Exemplo: comparando os documentos 1 e 2
 vetor_1 = coordenadas_normalizadas[0]
