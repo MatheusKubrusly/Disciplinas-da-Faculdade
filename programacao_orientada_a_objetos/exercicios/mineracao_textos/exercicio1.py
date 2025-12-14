@@ -6,7 +6,6 @@ d2 = 'app lento app lento'
 d3 = 'app usa criptomoeda'
 #print(type(d1)) #<class 'str'>
 
-stopwords = ['usa', 'funciona'] #criando uma lista com as palavras que devem ser removidas
 list_documents = [d1, d2, d3] #irei percorrer esta lista de documentos também
 frequencia_termos = [{} for _ in range(len(list_documents))]
 vetores_frequencia = [[] for _ in range(len(list_documents))]
@@ -20,11 +19,7 @@ for i in range(len(list_documents)):
     for j in range(len(lista_termos[i])):
         #utilizar de regular expressions para remover a pontuação do texto
         aux1.append(re.sub(r'[.,;]', '', lista_termos[i][j])) #eliminando qualquer traço de pontuação dentro do texto
-    aux2 = []
-    for x in aux1:
-        if x not in stopwords:
-            aux2.append(x)
-    lista_termos[i] = aux2
+    lista_termos[i] = aux1
 
     for termo in lista_termos[i]:
         if termo not in dicionario_termos:
