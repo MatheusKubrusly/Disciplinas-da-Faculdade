@@ -72,12 +72,18 @@ for vetor in coordenadas_normalizadas:
 #Exemplo: comparando os documentos 1 e 2
 vetor_1 = coordenadas_normalizadas[0]
 vetor_2 = coordenadas_normalizadas[1] #estes vetores estão no formato de tuplas
-coordenadas = [] * len(vetor_1) #criando uma lista de coordenadas de acordo com o tamanho dos vetores
-for i in range(len
-#print((x_1, y_1))
-#print((x_2, y_2))
-prodInternoVetores = (x_1 * x_2) + (y_1 * y_2) #os vetores já estão normalizados, logo, temos que o produto interno será igual ao cosseno do ângulo entre estes vetores!
-#print(prodInternoVetores) #cos(theta) = 0.8944271909999159, ou seja, grande proximidade entre o doc1 e o doc2 -> theta é, aproximadamente, 26.568...
+coordenadas_1 = [] * len(vetor_1) #criando uma lista de coordenadas de acordo com o tamanho dos vetores
+coordenadas_2 = [] * len(vetor_2)
+for i in range(len(vetor_1)): #len(vetor_1) é igual a len(vetor_2)
+    coordenadas_1.append(vetor_1[i])
+    coordenadas_2.append(vetor_2[i])
+
+prodInternoVetores = 0
+for i in range(len(coordenadas_1)):
+    prodInternoVetores += (coordenadas_1[i] * coordenadas_2[i])
+
+#os vetores já estão normalizados, logo, temos que o produto interno será igual ao cosseno do ângulo entre estes vetores!
+print(prodInternoVetores) #cos(theta) = 0.8944271909999159, ou seja, grande proximidade entre o doc1 e o doc2 -> theta é, aproximadamente, 26.568...
 # 1. Calculate arccosine (Result is in Radians)
 angle_radians = acos(prodInternoVetores)
 # 2. Convert to Degrees
@@ -87,12 +93,18 @@ print(f"Ângulo entre os vetores 1 e 2: {angle_degrees}")
 #Exemplo: comparando os documentos 2 e 3
 vetor_1 = coordenadas_normalizadas[1]
 vetor_2 = coordenadas_normalizadas[2] #estes vetores estão no formato de tuplas
-x_1, y_1 = vetor_1
-x_2, y_2 = vetor_2
-#print((x_1, y_1))
-#print((x_2, y_2))
-prodInternoVetores = (x_1 * x_2) + (y_1 * y_2)
-#print(prodInternoVetores) #cos(theta) = 0.4472135954999579, ou seja, doc2 e doc3 não são tão próximos um do outro -> theta é, aproximadamente, 63.442...
+coordenadas_1 = [] * len(vetor_1) #criando uma lista de coordenadas de acordo com o tamanho dos vetores
+coordenadas_2 = [] * len(vetor_2)
+for i in range(len(vetor_1)): #len(vetor_1) é igual a len(vetor_2)
+    coordenadas_1.append(vetor_1[i])
+    coordenadas_2.append(vetor_2[i])
+
+prodInternoVetores = 0
+for i in range(len(coordenadas_1)):
+    prodInternoVetores += (coordenadas_1[i] * coordenadas_2[i])
+
+#os vetores já estão normalizados, logo, temos que o produto interno será igual ao cosseno do ângulo entre estes vetores!
+print(prodInternoVetores) #cos(theta) = 0.8944271909999159, ou seja, grande proximidade entre o doc1 e o doc2 -> theta é, aproximadamente, 26.568...
 # 1. Calculate arccosine (Result is in Radians)
 angle_radians = acos(prodInternoVetores)
 # 2. Convert to Degrees
@@ -102,18 +114,23 @@ print(f"Ângulo entre os vetores 2 e 3: {angle_degrees}")
 #Exemplo: comparando os documentos 1 e 3
 vetor_1 = coordenadas_normalizadas[0]
 vetor_2 = coordenadas_normalizadas[2] #estes vetores estão no formato de tuplas
-x_1, y_1 = vetor_1
-x_2, y_2 = vetor_2
-#print((x_1, y_1))
-#print((x_2, y_2))
-prodInternoVetores = (x_1 * x_2) + (y_1 * y_2)
-#print(prodInternoVetores) #cos(theta) = 0.4472135954999579, ou seja, doc2 e doc3 não são tão próximos um do outro -> theta é, aproximadamente, 63.442...
+coordenadas_1 = [] * len(vetor_1) #criando uma lista de coordenadas de acordo com o tamanho dos vetores
+coordenadas_2 = [] * len(vetor_2)
+for i in range(len(vetor_1)): #len(vetor_1) é igual a len(vetor_2)
+    coordenadas_1.append(vetor_1[i])
+    coordenadas_2.append(vetor_2[i])
+
+prodInternoVetores = 0
+for i in range(len(coordenadas_1)):
+    prodInternoVetores += (coordenadas_1[i] * coordenadas_2[i])
+
+#os vetores já estão normalizados, logo, temos que o produto interno será igual ao cosseno do ângulo entre estes vetores!
+print(prodInternoVetores) #cos(theta) = 0.8944271909999159, ou seja, grande proximidade entre o doc1 e o doc2 -> theta é, aproximadamente, 26.568...
 # 1. Calculate arccosine (Result is in Radians)
 angle_radians = acos(prodInternoVetores)
 # 2. Convert to Degrees
 angle_degrees = degrees(angle_radians)
 print(f"Ângulo entre os vetores 1 e 3: {angle_degrees}")
-
 
 
     
