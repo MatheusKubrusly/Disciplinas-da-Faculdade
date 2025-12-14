@@ -1,12 +1,12 @@
 import re
 from math import sqrt, acos, degrees
 
-d1 = 'sou feliz. Muito feliz. As vezes fico triste.'
-d2 = 'fico feliz todos os dias. Sou sempre feliz.'
-d3 = 'triste. Muito triste. As vezes fico feliz.'
+d1 = 'app funciona app'
+d2 = 'app lento app lento'
+d3 = 'app usa criptomoeda'
 #print(type(d1)) #<class 'str'>
 
-stopwords = ['sou', 'fico', 'as', 'às', 'os', 'todos', 'sempre', 'vezes', 'dias', 'muito'] #criando uma lista com as palavras que devem ser removidas
+stopwords = ['usa', 'funciona'] #criando uma lista com as palavras que devem ser removidas
 list_documents = [d1, d2, d3] #irei percorrer esta lista de documentos também
 frequencia_termos = [{} for _ in range(len(list_documents))]
 vetores_frequencia = [[] for _ in range(len(list_documents))]
@@ -28,17 +28,21 @@ for i in range(len(list_documents)):
 
     for termo in lista_termos[i]:
         if termo not in dicionario_termos:
-            dicionario_termos.append(termo)
+            dicionario_termos.append(termo) #construindo o dicionário todo de forma completa antes de começar a construir os vetores de frequência!
 
+for i in range(len(list_documents)):
     for termo in dicionario_termos:
         frequencia_termos[i][termo] = 0
 
+    #print(lista_termos[i])
     for termo in lista_termos[i]:
         frequencia_termos[i][termo] += 1 
 
+    #print(frequencia_termos[i])
     for value in frequencia_termos[i].values():
         vetores_frequencia[i].append(value)
 
+print(vetores_frequencia)
 coordenadas_normalizadas = []
 #devemos transformar os vetores existentes em vetores unitários!
 for vetor in vetores_frequencia:
@@ -63,13 +67,13 @@ for vetor in coordenadas_normalizadas:
 
 #agora devemos aplicar a fórmula da "similaridade entre cossenos"
 #mediremos o cosseno do ângulo formado entre dois vetores
-#quanto mais próximo o cosseno chegar de 0, maior a correlação entre os 
+#quanto mais próximo o cosseno chegar de 0, maior a correlação entre os documentos
 
 #Exemplo: comparando os documentos 1 e 2
 vetor_1 = coordenadas_normalizadas[0]
 vetor_2 = coordenadas_normalizadas[1] #estes vetores estão no formato de tuplas
-x_1, y_1 = vetor_1
-x_2, y_2 = vetor_2
+coordenadas = [] * len(vetor_1) #criando uma lista de coordenadas de acordo com o tamanho dos vetores
+for i in range(len
 #print((x_1, y_1))
 #print((x_2, y_2))
 prodInternoVetores = (x_1 * x_2) + (y_1 * y_2) #os vetores já estão normalizados, logo, temos que o produto interno será igual ao cosseno do ângulo entre estes vetores!
@@ -113,16 +117,3 @@ print(f"Ângulo entre os vetores 1 e 3: {angle_degrees}")
 
 
     
-
-
-    
-
-
-
-
-
-    
-
-
-
-
