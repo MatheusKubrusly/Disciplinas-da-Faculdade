@@ -170,3 +170,8 @@ select nome as desfile_escola, publico_estimado from escola_de_samba,desfile whe
 
 --atualizando a data do bloco "Vou passar"
 update bloco_de_rua set data_bloco = '2025-02-10';
+
+--testando a cláusula "distinct"
+insert into pessoa (id_pessoa,nome,data_nascimento,genero) values  (10, 'Milton Cunha', '1962-03-19', 'M');
+select nome,data_nascimento from pessoa; --aqui eu tenho a exibição de dois 'Milton Cunha', mesmo que a combinação das colunas exibidas seja a mesma
+select distinct nome,data_nascimento from pessoa; --aqui eu tenho a exibição de apenas um 'Milton Cunha', pois ele bloqueia a combinação de colunas com os mesmos valores por estarmos usando de "distinct"
