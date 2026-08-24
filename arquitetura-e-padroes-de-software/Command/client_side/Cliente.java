@@ -1,6 +1,7 @@
 public class Cliente {
 
-	//Desta forma, não conseguirei acessar os atributos diretamente, o que me permite aplicar algum filtro antes de permitir a alteração destes dados
+	// Desta forma, não conseguirei acessar os atributos diretamente, 
+	// o que me permite aplicar algum filtro antes de permitir a alteração destes dados.
 	private String nome;
 	private int id;
 	
