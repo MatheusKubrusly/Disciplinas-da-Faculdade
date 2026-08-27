@@ -26,7 +26,9 @@ public class Invoker {
 				IncluirClienteCommand comandoIncluir = (IncluirClienteCommand) listaComandos.get(comando);
 				comandoIncluir.setID((Integer) listaParametros.get("id"));
 				comandoIncluir.setNome((String) listaParametros.get("nome"));
+				comandoIncluir.execute();
 				historicoComandos.add(comandoIncluir);
+				break;
 			case "Alterar":
 				//listaComandos.get(comando).execute(listaParametros);
 				//historicoComandos.add(comando);

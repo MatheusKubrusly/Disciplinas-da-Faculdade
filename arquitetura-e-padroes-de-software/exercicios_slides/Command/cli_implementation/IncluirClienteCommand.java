@@ -22,6 +22,7 @@ public class IncluirClienteCommand implements Command {
 	public void execute() {
 		try {
 			Connection connection = DataBaseConnection.getInstance().connection();
+			connection.setAutoCommit(false);
 			PreparedStatement statement = connection.prepareStatement("insert into cliente (nome, id) values (?,?)");
 			// Iremos injetar os dados de forma dinâmica dentro da sentença SQL 
 			// que pretendemos executar.
@@ -30,6 +31,7 @@ public class IncluirClienteCommand implements Command {
 			statement.execute(); 
 			// Posteriormente, podemos implementar algo para validar o resultado
 			// obtido após a atualização do banco de dados realizada.
+			connection.commit();
 
 			System.out.println("Operação de inclusão realizada com sucesso");
 		}
@@ -44,9 +46,13 @@ public class IncluirClienteCommand implements Command {
 		// tupla da tabela.
 		try {	
 			Connection connection = DataBaseConnection.getInstance().connection();
+			connection.setAutoCommit(false);
 			PreparedStatement statement = connection.prepareStatement("delete from cliente where id = ?");
 			statement.setInt(1, idCliente);
 			statement.execute();
+			connection.commit(); // Agora sim estou persistindo as alterações realizadas dentro do banco de dados!
+
+			System.out.println("Operação de deleção realizada com sucesso!");
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
